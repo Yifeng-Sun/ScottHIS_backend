@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--客户映射 指定到接口 -->
+<mapper namespace="com.scotthis.demo.mapper.GetRegListMapper">
+    <select id="getRegList" resultMap="AppointmentOKToCancel">
+        select *
+        from Appointment_new
+        where state = 1;
+    </select>
+    
+    <resultMap id="AppointmentOKToCancel" type="Reg" autoMapping="true">
+        <!-- 定义主键 ,非常重要。如果是多个字段,则定义多个id -->
+        <!-- property：主键在pojo中的属性名 -->
+        <!-- column：主键在数据库中的列名 -->
+        <id property="id" column="id" />
+
+        <!-- 定义普通属性 -->
+        <result property="name" column="pName" />
+        <result property="records_num" column="records_num"></result>
+    </resultMap>
+</mapper>
+

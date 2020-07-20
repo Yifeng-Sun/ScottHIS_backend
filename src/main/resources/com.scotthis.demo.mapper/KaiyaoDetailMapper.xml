@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--客户映射 指定到接口 -->
+<mapper namespace="com.scotthis.demo.mapper.KaiyaoDetailMapper">
+    <select id="getKaiyaoDetail" resultMap="AppointmentOKToCancel" parameterType="Record_numBean">
+        select A.records_num,pName,idCardNum,drugName
+        from Appointment_new A, KaiyaoItem K
+        where K.state = 1 and A.records_num = K.records_num and A.records_num = #{record_num};
+
+
+    </select>
+
+    <resultMap id="AppointmentOKToCancel" type="KaiyaoDetail" autoMapping="true">
+        <!-- 定义主键 ,非常重要。如果是多个字段,则定义多个id -->
+        <!-- property：主键在pojo中的属性名 -->
+        <!-- column：主键在数据库中的列名 -->
+        <id property="id" column="id" />
+
+        <!-- 定义普通属性 -->
+    </resultMap>
+</mapper>
+

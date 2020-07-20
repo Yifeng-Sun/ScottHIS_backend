@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--客户映射 指定到接口 -->
+<mapper namespace="com.scotthis.demo.mapper.AppointmentMapper">
+    <insert id="addAppointment" parameterType="Reg">
+        insert into Appointment_new values (null, #{records_num}, #{name}, #{sex}, #{idCardNum}, #{birthday}, #{age}, #{homeAddress}, #{department_type_id}, #{regTime}, #{department_id}, #{doctor_id}, #{doctor_id});
+    </insert>
+</mapper>
+<!--        insert into Appointment (id, records_num, name, idCardNum, regTime, department, doctor, state) values (null, #{records_num}, #{name}, #{idCardNum},#{regTime}, #{department_id}, #{doctor_id}, #{state});-->
